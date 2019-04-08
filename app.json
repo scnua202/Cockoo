@@ -1,0 +1,42 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/logs/logs",
+    "pages/setting/setting",
+    "pages/choosemusic/choosemusic"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#3197ed",
+    "navigationBarTitleText": "",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "black",
+    "selectedColor": "#1296db",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "image/time-circle-1.png",
+        "selectedIconPath": "image/time-circle.png",
+        "requiredBackgroundModes": ["audio","backgroundAudioManager"],
+        "text": "主页"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "iconPath": "image/message-1.png",
+        "selectedIconPath": "image/message.png",
+        "text": "记录"
+      },
+      {
+        "pagePath": "pages/setting/setting",
+        "iconPath": "image/smile-1.png",
+        "selectedIconPath": "image/smile.png",
+        "text": "设置"
+      }
+    ]
+  },
+  "requiredBackgroundModes": ["audio"]
+}

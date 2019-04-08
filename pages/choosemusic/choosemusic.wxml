@@ -1,0 +1,14 @@
+<!--pages/choosemusic/choosemusic.wxml-->
+<view class='page_row'>
+	  <view class="search">
+			  <view class="df search_arr">
+						<icon class="searchcion" size='20' type='search'></icon> 
+            <input class="" placeholder="请输入想要听的音乐名字" bindinput='musicname'/>
+				</view>
+		</view>
+		<view class='sousuo' bindtap='searchHandle'>搜索</view>
+</view>
+
+<view>
+  <audio></audio>
+</view>
