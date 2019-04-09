@@ -37,6 +37,5 @@
         "text": "设置"
       }
     ]
-  },
-  "requiredBackgroundModes": ["audio"]
+  }
 }

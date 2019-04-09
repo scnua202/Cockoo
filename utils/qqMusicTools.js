@@ -62,8 +62,18 @@ function playMusic(filename) {
   })
 }
 
+//QQ音乐获取歌曲封面
+function getMusicImg(albumid)
+{
+  return new Promise((resolve,reject) => {
+    var imgurl = "http://imgcache.qq.com/music/photo/album_300/" + albumid % 100 + "/300_albumpic_" + albumid + "_0.jpg"
+    resolve(imgurl)
+  })
+}
+
 module.exports = {
   Promise,
   searchMusic: searchMusic,
   playMusic: playMusic,
+  getMusicImg: getMusicImg
 }

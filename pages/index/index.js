@@ -124,6 +124,9 @@ Page({
         console.log(res)
         bgAudioManager.title = 'Music'
         bgAudioManager.src = res
+        wx.playBackgroundAudio({
+          dataUrl: 'res',
+        })
       })
       //  if(completed)
       //  {
@@ -166,4 +169,15 @@ Page({
     wx.setStorageSync('logs', logs)
   },
 
+  onLoad: function () {
+    var that = this;
+
+    //搜索频道
+    util.getHotSearch(function (data) {
+      that.setData({
+        hotkey: data.data.hotkey,
+        special: data.data.special_key
+      })
+    });
+  },
 })
