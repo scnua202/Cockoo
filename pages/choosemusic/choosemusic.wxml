@@ -26,14 +26,28 @@
     <view class="search-cancel" bindtap="searchHandle" hover-class='search-click'>搜索</view>
   </view>
 
-  <view class="search-hot" hidden="{{searchLoading || searchLoadingComplete}}">
+  <view class="search-hot" hidden="{{searchLoading || searchLoadingComplete}}" wx:if="{{showHotSearch}}">
     <text class="hot-title">热门搜索</text>
     <view class="hot-wrap">
       <text class="hot-item hot">{{special}}</text>
       <text class="hot-item" wx:for="{{hotkey}}" wx:key="unique" data-text="{{item.k}}" bindtap="hotkeyTap">{{item.k}}</text>
     </view>
-  </view>
 
-  <audio controls='true' poster='{{poster}}' name='{{name}}' author='{{author}}' src='{{src}}'>
+      <audio class="audioplay" controls='true' poster='{{poster}}' name='{{name}}' author='{{author}}' src='{{src}}'>
 </audio>
+  </view>
 </view>
+
+<view wx:if="{{showSearchResult}}" class='scroll-container'>
+  <scroll-view scroll-y='true'>
+    <view class='scroll-item-x' wx:for="{{songSearchResult}}">
+      {{item.albumname}}
+      {{item.singer["0"].name}}
+    </view>
+  </scroll-view>
+</view>
+
+<view class='smalltext'>
+  搜索结果由QQ音乐提供
+</view>
+

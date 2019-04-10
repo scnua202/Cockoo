@@ -11,6 +11,9 @@ Page({
     author:'未知作者',
     poster:'',
     src:'',
+    showHotSearch: true,
+    showSearchResult: false,
+    songSearchResult: [],
 
     //临时数据
     hotkey: [],
@@ -21,7 +24,7 @@ Page({
     searchPageNum: 1,
     searchLoading: false,
     isFromSearch: true,
-    searchLoadingComplete: false
+    searchLoadingComplete: false,
   },
 
   /**
@@ -93,10 +96,14 @@ Page({
   // 音乐搜索
   searchHandle: function (event) {
     let that = this;
+    that.setData({
+      showHotSearch:false,
+      showSearchResult:true
+      })
     var message = that.data.searchKeyword;
     console.log(message)
     const bgAudioManager = wx.getBackgroundAudioManager();
-    RequestTools.searchMusic(1, 10, message).then(function(res) {
+    RequestTools.searchMusic(1, 20, message).then(function(res) {
       console.log(res)
       if (res.data.song.list["0"].pay.payplay==1)
       {
@@ -117,8 +124,17 @@ Page({
 
       that.setData({
         name: res.data.song.list["0"].songname,
-        author: res.data.song.list["0"].singer["0"].name
+        author: res.data.song.list["0"].singer["0"].name,
       })
+      console.log(that.data.songname)
+      //保存歌曲信息
+      // that.data.songSearchResult = res.data.song.list
+      that.setData({
+        songSearchResult: res.data.song.list
+      })
+
+      console.log(that.data.songer)
+      console.log(that.data.songname)
 
       RequestTools.playMusic(res.data.song.list["0"].songmid).then(function (res) {
         console.log(res)
