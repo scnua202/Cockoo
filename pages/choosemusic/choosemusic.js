@@ -4,7 +4,7 @@ const RequestTools = require("../../utils/qqMusicTools.js")
 Page({
 
   /**
-   * 页面的初始数据
+   * 页面的初始数据 12346789
    */
   data: {
     name:'未知音频',
